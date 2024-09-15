@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress-wit2024
+  annotations:
+  # Remove this if it causes issues
+  #nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: myapp.local
+      http:
+        paths:
+          - path: /api/students
+            pathType: Prefix
+            backend:
+              service:
+                name: my-backend-wit2024
+                port:
+                  number: 32000  # Ensure this matches the backend service port
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: my-frontend-wit2024
+                port:
+                  number: 8081
