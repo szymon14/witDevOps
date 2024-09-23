@@ -13,7 +13,7 @@ spec:
         app: postgres
     spec:
       imagePullSecrets:
-        - name: my-dockerhub-secret
+        - name: db-credentials
       containers:
         - name: postgres
           image: rhodgar14/my-db-wit2024:latest

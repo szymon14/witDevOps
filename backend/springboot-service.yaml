@@ -7,6 +7,6 @@ spec:
     app: springboot
   ports:
     - protocol: TCP
-      port: 32000  # Service port exposed to Ingress
+      port: 80  # Service port exposed to Ingress
       targetPort: 32000  # Matches the port your Spring Boot app listens on
   type: ClusterIP

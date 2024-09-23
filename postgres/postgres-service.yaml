@@ -4,8 +4,10 @@ metadata:
   name: my-db-wit2024
 spec:
   selector:
-    app: postgres
+    app: postgres  # Ensure this label matches your PostgreSQL pod's label
   ports:
     - protocol: TCP
-      port: 5432
-      targetPort: 5432
+      port: 5432        # The port exposed by the service
+      targetPort: 5432  # The port your PostgreSQL container listens on
+  clusterIP: None       # Make this a headless service for proper StatefulSet DNS resolution
+

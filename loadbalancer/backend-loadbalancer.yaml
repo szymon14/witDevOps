@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-backend-wit2024
+  name: my-backend-lb-wit2024
   annotations:
     cloud.google.com/load-balancer-type: "External"  # Adjust for your cloud provider if necessary (AWS, Azure)
 spec:

@@ -14,11 +14,13 @@ spec:
         app: postgres
     spec:
       imagePullSecrets:
-        - name: my-dockerhub-secret
+        - name: db-credentials
       containers:
         - name: postgres
           image: rhodgar14/my-db-wit2024:latest
           env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata  # Set PGDATA to a subdirectory
             - name: POSTGRES_DB
               value: "postgres"
             - name: POSTGRES_USER
@@ -31,11 +33,11 @@ spec:
           ports:
             - containerPort: 5432
           volumeMounts:
-            - name: postgres-persistent-storage
-              mountPath: /var/lib/postgresql/data  # Where the data is stored in the container
+            - name: postgres-persistent-storage  # Match the name with volumeClaimTemplates
+              mountPath: /var/lib/postgresql/data  # Mount to this path
   volumeClaimTemplates:
     - metadata:
-        name: postgres-persistent-storage
+        name: postgres-persistent-storage  # Ensure the name matches
       spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:
