@@ -55,3 +55,10 @@ This configuration defines two routing rules:
 
 Requests to /api/students are routed to the Spring Boot backend service.
 All other requests (/) are routed to the Angular frontend service.
+
+
+zmiany w database dla azura
+Headless zeby nie miała publicznego ip
+- name: PGDATA
+value: /var/lib/postgresql/data/pgdata  # Set PGDATA to a subdirectory
+i dodac pg_hba.conf
