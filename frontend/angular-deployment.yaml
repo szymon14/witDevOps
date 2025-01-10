@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-frontend-wit2024
 spec:
-  replicas: 2  # Number of running frontend instances/  previous 1
+  replicas: 2  # Number of running frontend instances
   selector:
     matchLabels:
       app: my-frontend-wit2024

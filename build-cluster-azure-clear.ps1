@@ -60,7 +60,7 @@ docker push $registryName/my-frontend-wit2024:latest
 kubectl create secret generic db-credentials --from-literal=SPRING_DATASOURCE_USERNAME=postgres --from-literal=SPRING_DATASOURCE_PASSWORD=wit2024 --dry-run=client -o yaml | kubectl apply -f - -n $namespace
 
 # <Deploy Kubernetes resources>
-kubectl apply -f "$devOpsPath/postgres/postgres-deployment-2.yaml" -n $namespace
+kubectl apply -f "$devOpsPath/postgres/postgres-deployment.yaml" -n $namespace
 kubectl apply -f "$devOpsPath/postgres/postgres-service.yaml" -n $namespace
 kubectl apply -f "$devOpsPath/frontend/angular-deployment.yaml" -n $namespace
 kubectl apply -f "$devOpsPath/frontend/angular-service.yaml" -n $namespace

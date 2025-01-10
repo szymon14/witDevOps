@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-backend-wit2024
 spec:
-  replicas: 2  # Number of running backend instances previous 1
+  replicas: 2
   selector:
     matchLabels:
       app: springboot
@@ -21,7 +21,7 @@ spec:
             - name: SPRING_PROFILES_ACTIVE
               value: "test"
             - name: SPRING_PORT
-              value: "32000"  # Ensure the app inside listens on 32000 if changed
+              value: "32000"
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:postgresql://my-db-wit2024:5432/postgres"
             - name: SPRING_DATASOURCE_USERNAME
@@ -35,4 +35,4 @@ spec:
                   name: db-credentials  # Name of the secret
                   key: SPRING_DATASOURCE_PASSWORD  # Key for the password
           ports:
-            - containerPort: 32000  # Change this to 32000 to match the SPRING_PORT environment variable
+            - containerPort: 32000

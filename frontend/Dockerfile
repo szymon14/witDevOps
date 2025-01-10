@@ -1,4 +1,4 @@
-# Step 1: Build Angular Application
+# Build Angular Application
 FROM node:18 as build
 
 WORKDIR /app
@@ -11,7 +11,7 @@ RUN npm install
 COPY ./witFrontend ./
 RUN npm run build --prod
 
-# Step 2: Create NGINX container to serve the Angular application
+#  Create NGINX container to serve the Angular application
 FROM nginx:alpine
 
 # Remove default NGINX configuration file
